@@ -2,4 +2,4 @@
 -keepclassmembers class com.nh.jarvis.MainActivity$AndroidBridge {
    public *;
 }
--keep class com.nh.jarvis.HtmlVault { *; }
+-keep class com.rsanime.HtmlVault { *; }
