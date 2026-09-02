@@ -15,7 +15,7 @@
             android:id="@+id/splash_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NH BOX"
+            android:text="RS ANIME"
             android:textSize="48sp"
             android:textStyle="bold"
             android:fontFamily="monospace"
