@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.NHBOX" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.RSANIME" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/accent</item>
         <item name="colorPrimaryVariant">@color/accent</item>
         <item name="colorOnPrimary">@color/on_primary</item>
@@ -9,7 +9,7 @@
         <item name="android:navigationBarColor">@color/bg</item>
     </style>
 
-    <style name="Theme.NHBOX.Splash" parent="Theme.NHBOX">
+    <style name="Theme.RSANIME.Splash" parent="Theme.RSANIME">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>
     </style>
