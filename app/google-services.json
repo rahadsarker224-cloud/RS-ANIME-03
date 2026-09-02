@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1050779978318",
+    "firebase_url": "https://animeverse-d7b79-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "animeverse-d7b79",
+    "storage_bucket": "animeverse-d7b79.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050779978318:android:0fe5f09b0b9686354f511f",
+        "android_client_info": {
+          "package_name": "rsanime.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050779978318-vh13ch2c07oa1t8e7j4vcflagr07a2co.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAO19Q9UuOBW9jEauTjff0TNaQrwCPk_sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050779978318-vh13ch2c07oa1t8e7j4vcflagr07a2co.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
