@@ -1,0 +1,70 @@
+import groovy.json.JsonSlurper
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+}
+
+// ── Auto-detect applicationId from google-services.json ──────────────
+// Whoever builds this project just drops in their own google-services.json;
+// the applicationId below is read from it automatically at build time, so
+// it always matches — no manual edits, no renamed folders needed.
+//
+// google-services.json can contain MULTIPLE registered apps (e.g. the user
+// app + the admin app both under one Firebase project). We must NOT just
+// grab client[0] — that picks the same entry regardless of which project
+// is building, causing both the user app and admin app to build with the
+// SAME applicationId. Instead: look for the entry whose package_name
+// matches THIS project's own expected package; only fall back to the
+// first entry if no exact match exists (single-app json files).
+def googleServicesFile = file('google-services.json')
+def expectedAppId = 'com.nh.jarvis' // this project's own package — used to pick the right entry
+def detectedAppId = expectedAppId   // also the fallback if the file is missing
+if (googleServicesFile.exists()) {
+    def parsed = new JsonSlurper().parseText(googleServicesFile.text)
+    def clients = parsed.client ?: []
+    def matched = clients.find {
+        it.client_info?.android_client_info?.package_name == expectedAppId
+    }
+    if (matched == null && !clients.isEmpty()) {
+        matched = clients[0] // single-app json — no ambiguity, safe to use as-is
+    }
+    def pkg = matched?.client_info?.android_client_info?.package_name
+    if (pkg) { detectedAppId = pkg }
+}
+
+android {
+    namespace 'com.nh.jarvis'
+    compileSdk 34
+    defaultConfig {
+        applicationId detectedAppId
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug { minifyEnabled false }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions { jvmTarget = '1.8' }
+    buildFeatures { viewBinding true; buildConfig true }
+}
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.webkit:webkit:1.10.0'
+    implementation platform('com.google.firebase:firebase-bom:33.1.0')
+    implementation 'com.google.firebase:firebase-database-ktx'
+}
