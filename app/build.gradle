@@ -19,7 +19,7 @@ plugins {
 // matches THIS project's own expected package; only fall back to the
 // first entry if no exact match exists (single-app json files).
 def googleServicesFile = file('google-services.json')
-def expectedAppId = 'com.nh.jarvis' // this project's own package — used to pick the right entry
+def expectedAppId = 'com.rsanime' // this project's own package — used to pick the right entry
 def detectedAppId = expectedAppId   // also the fallback if the file is missing
 if (googleServicesFile.exists()) {
     def parsed = new JsonSlurper().parseText(googleServicesFile.text)
@@ -35,7 +35,7 @@ if (googleServicesFile.exists()) {
 }
 
 android {
-    namespace 'com.nh.jarvis'
+    namespace 'com.rsanime'
     compileSdk 34
     defaultConfig {
         applicationId detectedAppId
