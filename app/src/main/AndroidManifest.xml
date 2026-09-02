@@ -9,7 +9,7 @@
         android:maxSdkVersion="32" />
 
     <application
-        android:label="NH BOX"
+        android:label="RS ANIME"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:allowBackup="false"
@@ -17,13 +17,13 @@
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:debuggable="false"
-        android:theme="@style/Theme.NHBOX">
+        android:theme="@style/Theme.RSANIME">
 
         <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.NHBOX.Splash">
+            android:theme="@style/Theme.RSANIME.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
